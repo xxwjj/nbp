@@ -34,7 +34,7 @@ spec:
           args:
             - "--snapshotter=csi-opensdsplugin"
             - "--csi-address=$(ADDRESS)"
-            - "--connection-timeout=15s"
+            - "--connection-timeout=600s"
           env:
             - name: ADDRESS
               value: /csi/csi.sock

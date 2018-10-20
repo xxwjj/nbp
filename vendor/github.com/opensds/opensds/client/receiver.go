@@ -20,6 +20,7 @@ import (
 	"io/ioutil"
 	"net/http"
 	"strings"
+	"time"
 
 	"github.com/astaxie/beego/httplib"
 	"github.com/gophercloud/gophercloud"
@@ -67,6 +68,7 @@ func NewReceiver() Receiver {
 
 func request(url string, method string, headers HeaderOption, input interface{}, output interface{}) error {
 	req := httplib.NewBeegoRequest(url, strings.ToUpper(method))
+	req.SetTimeout(10*time.Minute, 10*time.Minute)
 	// init body
 	if input != nil {
 		req.JSONBody(input)

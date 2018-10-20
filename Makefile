@@ -40,9 +40,9 @@ flexvolume.server.opensds: prebuild
 
 docker: build
 	cp $(BUILD_DIR)/csi.server.opensds ./csi/server
-	cp $(BUILD_DIR)/csi.client.opensds ./csi/client
+	#cp $(BUILD_DIR)/csi.client.opensds ./csi/client
 	docker build csi/server -t opensdsio/csiplugin:latest
-	docker build csi/client -t opensdsio/csipluginclient:latest
+	#docker build csi/client -t opensdsio/csipluginclient:latest
 
 clean:
 	rm -rf $(BUILD_DIR) ./csi/server/csi.server.opensds ./csi/client/csi.client.opensds
